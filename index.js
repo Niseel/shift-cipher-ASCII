@@ -86,10 +86,31 @@ function encryptShitfCipher(str, number) {
   }
 }
 
-var str = readlineSync.question("> Enter string you want to encrypt? ");
-var number = readlineSync.question("> Enter 'k number' you want to encrypt? ");
+function ShitfCipherDetector(str) {
+  let result = [];
+  if (str.length === 0) {
+    return false;
+  }
+  for (let i = -94; i <= 94; i++) {
+    result.push(encryptShitfCipher(str, i));
+  }
+  return result;
+}
 
-console.log(
-  ">String after encrypt: ",
-  encryptShitfCipher(str, parseInt(number))
-);
+// var str = readlineSync.question("> Enter string you want to encrypt? ");
+// var number = readlineSync.question("> Enter 'k number' you want to encrypt? ");
+
+// console.log(
+//   ">String after encrypt: ",
+//   encryptShitfCipher(str, parseInt(number))
+// );
+
+var str = readlineSync.question("> Enter string you want to decrypt? ");
+
+var dataz = ShitfCipherDetector(str);
+
+dataz.forEach((item, index) => {
+  console.log(`${index - 94}: ${item}`);
+});
+
+// 6/=A-6 +76/ <0)60 ZWV
