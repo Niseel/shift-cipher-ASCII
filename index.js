@@ -5,7 +5,7 @@ xoay vòng
 const readlineSync = require("readline-sync");
 const data = require("./ASCII");
 
-function standNumber(number) {
+const standNumber = (number) => {
   if (number >= -94 && number <= 94) {
     return number;
   } else {
@@ -16,18 +16,16 @@ function standNumber(number) {
       return result - result * 2;
     }
   }
-}
+};
 
-function getChar(charCode) {
+const getChar = (charCode) => {
   return data.find((item) => item.key === charCode).value;
   //return char.value;
-}
+};
 
-function checkSpace(value) {
-  return value === 32 ? true : false;
-}
+const checkSpace = (value) => (value === 32 ? true : false);
 
-function encryptShitfCipher(str, number) {
+const encryptShitfCipher = (str, number) => {
   if (str.length === 0) {
     return false;
   }
@@ -84,9 +82,9 @@ function encryptShitfCipher(str, number) {
     }
     return result;
   }
-}
+};
 
-function ShitfCipherDetector(str) {
+const ShitfCipherDetector = (str) => {
   let result = [];
   if (str.length === 0) {
     return false;
@@ -95,22 +93,23 @@ function ShitfCipherDetector(str) {
     result.push(encryptShitfCipher(str, i));
   }
   return result;
-}
+};
 
-// var str = readlineSync.question("> Enter string you want to encrypt? ");
-// var number = readlineSync.question("> Enter 'k number' you want to encrypt? ");
+var str = readlineSync.question("> Enter string you want to encrypt? ");
+var number = readlineSync.question("> Enter 'k number' you want to encrypt? ");
 
-// console.log(
-//   ">String after encrypt: ",
-//   encryptShitfCipher(str, parseInt(number))
-// );
+console.log(
+  ">String after encrypt: ",
+  encryptShitfCipher(str, parseInt(number))
+);
 
-var str = readlineSync.question("> Enter string you want to decrypt? ");
+// var str = readlineSync.question("> Enter string you want to decrypt? ");
 
-var dataz = ShitfCipherDetector(str);
+// var dataz = ShitfCipherDetector(str);
 
-dataz.forEach((item, index) => {
-  console.log(`${index - 94}: ${item}`);
-});
+// dataz.forEach((item, index) => {
+//   console.log(`${index - 94}: ${item}`);
+// });
 
 // 6/=A-6 +76/ <0)60 ZWV
+// /,336 ==> hello
