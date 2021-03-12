@@ -3,6 +3,7 @@ Viết hàm mã hóa xoay vòng nhận vào 1 chuỗi và 1 số nhận về k�
 xoay vòng
 
 Flow bài toán:
+// Tham khảo và test tại : https://goto.pachanka.org/crypto/shift-cipher
 
 Mã hóa dịch vòng là mã hóa 1 bản rõ dựa vào 1 khóa Key là số nguyên, kí tự của bản rõ sẽ được dịch chuyển
 tới (key số dương) hoặc được dịch lùi (key số âm).
