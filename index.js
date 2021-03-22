@@ -143,4 +143,72 @@ const ShitfCipherDetector = (str) => {
 
 // console.log(">String after encrypt: ", encryptShitfCipher("abc d", 1));
 
-console.log(">String after encrypt: ", encryptShitfCipher("~", 3));
+//console.log(">String after encrypt: ", encryptShitfCipher("abc d", 3));
+// var dataz = ShitfCipherDetector("/,336");
+
+// dataz.forEach((item, index) => {
+//   console.log(`${index - 94}: ${item}`);
+// });
+
+// 6/=A-6 +76/ <0)60 ZWV
+// /,336 ==> hello -37
+function showMenu() {
+  console.log("1> Encrypt string with Shitf-Cipher");
+  console.log("2> Decrypt string with Shitf-Cipher");
+  console.log("3> Decrypt string with Shitf-Cipher without key");
+  console.log("4> End Program");
+}
+function main() {
+  showMenu();
+  let choose = readlineSync.question("> Choose your option? ");
+  switch (parseInt(choose)) {
+    case 1:
+      let plaintext = readlineSync.question(
+        "> Enter plantext you want to encrypt? "
+      );
+      var key = readlineSync.question(
+        "> Enter 'k number' you want to encrypt? "
+      );
+      console.log(
+        "> Your Ciphertext: ",
+        encryptShitfCipher(plaintext, parseInt(key))
+      );
+      console.log("\n \n");
+      console.log(
+        "============================================================="
+      );
+      main();
+      break;
+    case 2:
+      let ciphertext = readlineSync.question(
+        "> Enter ciphertext you want to decrypt? "
+      );
+      var key = readlineSync.question("> Enter 'k number' ");
+      console.log(
+        "> Your plaintext: ",
+        encryptShitfCipher(ciphertext, parseInt(key))
+      );
+      console.log("\n \n");
+      console.log(
+        "============================================================="
+      );
+      main();
+      break;
+    case 3:
+      let ciphertextToDetect = readlineSync.question(
+        "> Enter ciphertext you want to decrypt without the key? "
+      );
+      var dataz = ShitfCipherDetector(ciphertextToDetect);
+
+      dataz.forEach((item, index) => {
+        console.log(`${index - 94}: ${item}`);
+      });
+      main();
+      break;
+    case 4:
+      console.log("End Program");
+      break;
+  }
+}
+
+main();
